@@ -4,23 +4,23 @@
   
   
   <entry>
-    <title>建立了一个博客</title>
+    <title>总结一下Java String类</title>
     <link href="/2023/01/28/2023-1-28/"/>
     <url>/2023/01/28/2023-1-28/</url>
     
-    <content type="html"><![CDATA[<p>建立了一个博客，以后会在上面写东西</p><p><img src="/test.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>创建一个字符串 —-&gt; #创建一个字符<br>        String s &#x3D; “abcd”;<br>这相当于<br>        char data[] &#x3D; {‘a’,’b’,’c’,’d’};<br>        String s &#x3D; new String(data);</p>]]></content>
     
     
     <categories>
       
-      <category>随笔</category>
+      <category>Java</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>原创</tag>
+      <tag>Java基础</tag>
       
     </tags>
     
