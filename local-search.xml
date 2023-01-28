@@ -8,7 +8,7 @@
     <link href="/2023/01/28/2023-1-28/"/>
     <url>/2023/01/28/2023-1-28/</url>
     
-    <content type="html"><![CDATA[<p>创建一个字符串 —-&gt; #创建一个字符<br>        String s &#x3D; “abcd”;<br>这相当于<br>        char data[] &#x3D; {‘a’,’b’,’c’,’d’};<br>        String s &#x3D; new String(data);</p>]]></content>
+    <content type="html"><![CDATA[<p>1.创建一个字符串</p><pre>String s = "abcd";</pre><p>这相当于</p><pre>char data[] = {'a','b','c','d'};String s = new String(data);</pre>]]></content>
     
     
     <categories>
