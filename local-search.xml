@@ -5,10 +5,10 @@
   
   <entry>
     <title>总结一下Java String类</title>
-    <link href="/2023/01/28/2023-1-28/"/>
-    <url>/2023/01/28/2023-1-28/</url>
+    <link href="/2023/01/28/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8BJava%20String%E7%B1%BB/"/>
+    <url>/2023/01/28/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8BJava%20String%E7%B1%BB/</url>
     
-    <content type="html"><![CDATA[<p>1.创建一个字符串</p><pre>String s = "abcd";</pre><p>这相当于</p><pre>char data[] = {'a','b','c','d'};String s = new String(data);</pre>]]></content>
+    <content type="html"><![CDATA[<p>1.创建一个字符串<br>最简单的方法当然是：</p><pre>String s = "abcd";</pre><p>这相当于</p><pre>char data[] = {'a','b','c','d'};String s = new String(data);</pre><p>方法里还提供了offset和count两个参数，例如：</p><pre>char data[] = {'a','b','c','d'};String s = new String(data, 1, 2);s : "bc"</pre><p>String类是immutable的，如果想要创建可变的字符串可以用<pre>StringBuffer</pre>或者<pre>StringBuilder</pre>类，例如：</p>]]></content>
     
     
     <categories>
