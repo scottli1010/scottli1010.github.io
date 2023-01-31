@@ -16,22 +16,26 @@
   <meta name="author" content="scottli">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.创建一个字符串最简单的方法当然是：  String s &#x3D; &quot;abcd&quot;;  这相当于  char data[] &#x3D; {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;}; String s &#x3D; new String(data);  方法里还提供了offset和count两个参数，例如：  char data[] &#x3D; {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;}; String s &#x3D; new String(data,">
+    <meta name="description" content="DriverManager:  1.注册驱动2.获取数据库连接有用的方法: getConnection, registerDriver Connection:  获取执行SQL的对象普通执行SQL对象 Statement createStatement() 预编译SQL的执行SQL对象：防止SQL注入PreparedStatement prepareStatement(sql) 执行存储过程的对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="总结一下Java String类">
-<meta property="og:url" content="http://example.com/2023/01/28/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8BJava%20String%E7%B1%BB/index.html">
+<meta property="og:title" content="JDBC的API介绍">
+<meta property="og:url" content="http://example.com/2023/01/30/JDBC/index.html">
 <meta property="og:site_name" content="斯考特小斯">
-<meta property="og:description" content="1.创建一个字符串最简单的方法当然是：  String s &#x3D; &quot;abcd&quot;;  这相当于  char data[] &#x3D; {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;}; String s &#x3D; new String(data);  方法里还提供了offset和count两个参数，例如：  char data[] &#x3D; {&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;}; String s &#x3D; new String(data,">
+<meta property="og:description" content="DriverManager:  1.注册驱动2.获取数据库连接有用的方法: getConnection, registerDriver Connection:  获取执行SQL的对象普通执行SQL对象 Statement createStatement() 预编译SQL的执行SQL对象：防止SQL注入PreparedStatement prepareStatement(sql) 执行存储过程的对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-27T15:34:38.000Z">
-<meta property="article:modified_time" content="2023-01-29T00:57:41.462Z">
+<meta property="og:image" content="http://example.com/2023/01/30/JDBC/getconnection%E5%8F%82%E6%95%B0.jpeg">
+<meta property="og:image" content="http://example.com/2023/01/30/JDBC/831675064474_.pic.jpg">
+<meta property="og:image" content="http://example.com/2023/01/30/JDBC/841675070543_.pic.jpg">
+<meta property="article:published_time" content="2023-01-30T00:12:03.000Z">
+<meta property="article:modified_time" content="2023-01-30T12:06:18.123Z">
 <meta property="article:author" content="scottli">
-<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="JDBC">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2023/01/30/JDBC/getconnection%E5%8F%82%E6%95%B0.jpeg">
   
   
   
-  <title>总结一下Java String类 - 斯考特小斯</title>
+  <title>JDBC的API介绍 - 斯考特小斯</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="总结一下Java String类"></span>
+            <span id="subtitle" data-typed-text="JDBC的API介绍"></span>
           
         </div>
 
@@ -208,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-28 00:34" pubdate>
-          2023年1月28日 凌晨
+        <time datetime="2023-01-30 09:12" pubdate>
+          2023年1月30日 上午
         </time>
       </span>
     
@@ -220,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          247 字
+          372 字
         
       </span>
     
@@ -231,7 +235,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -269,27 +273,29 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">总结一下Java String类</h1>
+            <h1 style="display: none">JDBC的API介绍</h1>
             
             
               <div class="markdown-body">
                 
-                <p>1.创建一个字符串<br>最简单的方法当然是：</p>
-<pre>
-String s = "abcd";
-</pre>
-<p>这相当于</p>
-<pre>
-char data[] = {'a','b','c','d'};
-String s = new String(data);
-</pre>
-<p>方法里还提供了offset和count两个参数，例如：</p>
-<pre>
-char data[] = {'a','b','c','d'};
-String s = new String(data, 1, 2);
-s : "bc"
-</pre>
-<p>String类是immutable的，如果想要创建可变的字符串可以用<pre>StringBuffer</pre>或者<pre>StringBuilder</pre>类，例如：</p>
+                <p>DriverManager: </p>
+<p>1.注册驱动2.获取数据库连接<br>有用的方法: getConnection, registerDriver<br><img src="/2023/01/30/JDBC/getconnection%E5%8F%82%E6%95%B0.jpeg" srcset="/img/loading.gif" lazyload></p>
+<p>Connection:</p>
+<ol>
+<li>获取执行SQL的对象<br>普通执行SQL对象<pre> Statement createStatement()</pre>
+预编译SQL的执行SQL对象：防止SQL注入<pre>PreparedStatement prepareStatement(sql)</pre>
+执行存储过程的对象<pre>CallableStatement prepareCall(sql)<pre></li>
+<li>管理事务</li>
+</ol>
+<p>Statement:</p>
+<p>Resultset:</p>
+<p><img src="/2023/01/30/JDBC/831675064474_.pic.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>preparedStatement:</p>
+<p><img src="/2023/01/30/JDBC/841675070543_.pic.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>数据库连接池：<br>预先在池子里提前准备一些连接conn，用户访问时先从池子里找，用户用完后连接会回到池子。并且连接池会把空闲的连接强制收回防止连接遗漏</p>
+<p>数据库连接池实现：</p>
+<p>标准接口DataSource</p>
+<p>Druid（数据库）连接池</p>
 
                 
               </div>
@@ -308,7 +314,7 @@ s : "bc"
     
       <span class="category-chain">
         
-  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  <a href="/categories/JavaWeb%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">JavaWeb学习笔记</a>
   
   
 
@@ -323,7 +329,7 @@ s : "bc"
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Java%E5%9F%BA%E7%A1%80/">#Java基础</a>
+        <a href="/tags/JDBC/">#JDBC</a>
       
     </div>
   
@@ -335,8 +341,8 @@ s : "bc"
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>总结一下Java String类</div>
-      <div>http://example.com/2023/01/28/总结一下Java String类/</div>
+      <div>JDBC的API介绍</div>
+      <div>http://example.com/2023/01/30/JDBC/</div>
     </div>
     <div class="license-meta">
       
@@ -348,7 +354,7 @@ s : "bc"
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月28日</div>
+          <div>2023年1月30日</div>
         </div>
       
       
@@ -380,15 +386,21 @@ s : "bc"
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/29/SQl%E5%88%86%E7%B1%BB/" title="SQL分类">
+                      <a href="/2023/01/30/idea%E5%B0%8F%E5%A6%99%E6%8B%9B/" title="idea小妙招">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SQL分类</span>
+                        <span class="hidden-mobile">idea小妙招</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/01/29/SQL%E7%BA%A6%E6%9D%9F/" title="SQL约束和数据库设计">
+                        <span class="hidden-mobile">SQL约束和数据库设计</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
