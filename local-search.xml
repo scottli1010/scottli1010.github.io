@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>c++栈和队列</title>
+    <link href="/2023/02/01/c-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
+    <url>/2023/02/01/c-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Stack"><a href="#Stack" class="headerlink" title="Stack:"></a>Stack:</h1><p>首先声明一个栈：<br>stack<Object> st;</p><p>然后是stack用到的函数：</p><ol><li><p>st.empty() 用于判断是否为空</p></li><li><p>st.size() 大小</p></li><li><p>st.top() 访问最上层的元素</p></li><li><p>st.push() 在顶部插入新元素</p></li><li><p>st.pop()  从顶部开始删除元素</p></li><li><p>st.emplace()</p></li><li><p>st.swap() 可以交换两个栈的内容</p></li></ol><h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>创建队列：<br>queue<Object> que;</p><p>empty<br>size<br>front<br>back<br>push<br>pop<br>emplace<br>swap</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>c++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>栈</tag>
+      
+      <tag>队列</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>idea小妙招</title>
     <link href="/2023/01/30/idea%E5%B0%8F%E5%A6%99%E6%8B%9B/"/>
     <url>/2023/01/30/idea%E5%B0%8F%E5%A6%99%E6%8B%9B/</url>
@@ -83,7 +110,7 @@
     <link href="/2023/01/29/SQl%E5%88%86%E7%B1%BB/"/>
     <url>/2023/01/29/SQl%E5%88%86%E7%B1%BB/</url>
     
-    <content type="html"><![CDATA[<p>SQL语言可以分为四个类型，它们分别是：</p><pre>DDL(Data Definition Language) DML(Data Manipulation Language)DQL(Data Query Language)DCL(Data Control Languange)</pre><p><img src="/2023/01/29/SQl%E5%88%86%E7%B1%BB/%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="结构图"><br>接下来根据这四个分类对SQL语言进行详细的介绍：</p><ol><li><p>DDL</p><pre>显示所有：show databases创建：create database db1;create database db1;(error, 已存在)可以使用:create database if not exists db1;删除：drop database db2;drop database db2;(error, 已删除)可以使用：drop database if exists db2;使用数据库：use db1;查询当前数据库：select database();</pre></li><li><p>DDL (CRUD)表操作<br>Create:</p></li></ol><pre>create table tb_user(    id int,    username varchar(20),    password varchar(32))；shwo tables;desc rb_user;</pre><p>MySQL里的数据类型:<br><img src="/2023/01/29/SQl%E5%88%86%E7%B1%BB/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" alt="sql数据类型"><br>age int<br>score double(总长度，小数点后保留的位数)<br>birthday date<br>name char(10)<br>name varchar(10)<br>char和varchar区别：char是定长，字符长度不够会自动用空格填补，而varchar会计算并分配空间，所以varchar<br>存储效率低，但使用空间小</p><p>Retrieve:</p><pre>use mysql;show tables;desc(description) func;</pre><p>Update:</p><pre>alter table 表名 rename to 新的表名  ,,            ADD       ,,  ,,            ADD     列名 数据类型  ,,            MODIFY  列名 新数据类型  ,,            CHANGE  列名  新列名 新数据类型  ,,            DROP    列名</pre><p>Delete:</p><pre>drop table tb_user;</pre><p>3.DML<br>添加</p><pre>insert into 表名（列名1，列名2，...) values(值1，值2，...)insert into 表名 values(值1，值2，...)批量添加：insert into 表名（列名1，列名2，...),values(值1，值2，...).values(值1，值2，...)values(值1，值2，...)insert into 表名 values(值1，值2，...),values(值1，值2，...),values(值1，值2，...)</pre><p>修改</p><pre>update 表名 set 列名1=值1， 列名2=值2，... [where 条件]</pre><p>删除</p><pre>delete from 表名 [where 条件]</pre><p>3.DQL 查询</p><p>select<br>    字段列表<br>from<br>    表名列表<br>where<br>    条件列表<br>group by<br>    分组字段<br>having<br>    分组后条件<br>order by<br>    排序字段<br>limit<br>    分页限定</p><p><img src="/2023/01/29/SQl%E5%88%86%E7%B1%BB/%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="条件表达式"></p><p>接下来又讲了where和order by和group by</p><p>其中要注意一下where和having的区别：<br>・执行时机不一样：where是分组之前进行限定(group by)，不满足条件的不参与分组，而having是对之后的进行过滤<br>・where不能对聚合函数进行判断，而having可以<br>执行顺序：where&gt;聚合函数&gt;having</p><p>LIMIT分页查询，就是把数据一页一页展示出来</p><pre>select 字段列表 from 表名 limit 起始索引， 查询条目数</pre><p>注：limit是mysql的方言</p>]]></content>
+    <content type="html"><![CDATA[<p>SQL语言可以分为四个类型，它们分别是：</p><pre>DDL(Data Definition Language) DML(Data Manipulation Language)DQL(Data Query Language)DCL(Data Control Languange)</pre><p><img src="/2023/01/29/SQl%E5%88%86%E7%B1%BB/%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="结构图"><br>接下来根据这四个分类对SQL语言进行详细的介绍：</p><h1 id="1-DDL"><a href="#1-DDL" class="headerlink" title="1. DDL"></a>1. DDL</h1><pre>显示所有：show databases创建：create database db1;create database db1;(error, 已存在)可以使用:create database if not exists db1;删除：drop database db2;drop database db2;(error, 已删除)可以使用：drop database if exists db2;使用数据库：use db1;查询当前数据库：select database();</pre><h1 id="2-DDL-CRUD-表操作"><a href="#2-DDL-CRUD-表操作" class="headerlink" title="2. DDL (CRUD)表操作"></a>2. DDL (CRUD)表操作</h1><p>Create:</p><pre>create table tb_user(    id int,    username varchar(20),    password varchar(32))；shwo tables;desc rb_user;</pre><p>MySQL里的数据类型:<br><img src="/2023/01/29/SQl%E5%88%86%E7%B1%BB/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" alt="sql数据类型"><br>age int<br>score double(总长度，小数点后保留的位数)<br>birthday date<br>name char(10)<br>name varchar(10)<br>char和varchar区别：char是定长，字符长度不够会自动用空格填补，而varchar会计算并分配空间，所以varchar<br>存储效率低，但使用空间小</p><p>Retrieve:</p><pre>use mysql;show tables;desc(description) func;</pre><p>Update:</p><pre>alter table 表名 rename to 新的表名  ,,            ADD       ,,  ,,            ADD     列名 数据类型  ,,            MODIFY  列名 新数据类型  ,,            CHANGE  列名  新列名 新数据类型  ,,            DROP    列名</pre><p>Delete:</p><pre>drop table tb_user;</pre><h1 id="3-DML"><a href="#3-DML" class="headerlink" title="3.DML"></a>3.DML</h1><p>添加</p><pre>insert into 表名（列名1，列名2，...) values(值1，值2，...)insert into 表名 values(值1，值2，...)批量添加：insert into 表名（列名1，列名2，...),values(值1，值2，...).values(值1，值2，...)values(值1，值2，...)insert into 表名 values(值1，值2，...),values(值1，值2，...),values(值1，值2，...)</pre><p>修改</p><pre>update 表名 set 列名1=值1， 列名2=值2，... [where 条件]</pre><p>删除</p><pre>delete from 表名 [where 条件]</pre><h1 id="4-DQL-查询"><a href="#4-DQL-查询" class="headerlink" title="4.DQL 查询"></a>4.DQL 查询</h1><p>select<br>    字段列表<br>from<br>    表名列表<br>where<br>    条件列表<br>group by<br>    分组字段<br>having<br>    分组后条件<br>order by<br>    排序字段<br>limit<br>    分页限定</p><p><img src="/2023/01/29/SQl%E5%88%86%E7%B1%BB/%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="条件表达式"></p><p>接下来又讲了where和order by和group by</p><p>其中要注意一下where和having的区别：<br>・执行时机不一样：where是分组之前进行限定(group by)，不满足条件的不参与分组，而having是对之后的进行过滤<br>・where不能对聚合函数进行判断，而having可以<br>执行顺序：where&gt;聚合函数&gt;having</p><p>LIMIT分页查询，就是把数据一页一页展示出来</p><pre>select 字段列表 from 表名 limit 起始索引， 查询条目数</pre><p>注：limit是mysql的方言</p>]]></content>
     
     
     <categories>
